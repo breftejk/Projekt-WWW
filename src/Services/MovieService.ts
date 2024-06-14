@@ -3,7 +3,7 @@ import TMDbAPIClient from "../Utils/TMDbAPIClient";
 
 class MovieService {
     static async search(query: string): Promise<MovieSearch[]> {
-        const response = await TMDbAPIClient.get<{ results: MovieSearch[] }>("movies/search", {
+        const response = await TMDbAPIClient.get<{ results: MovieSearch[] }>("search/movie", {
             params: {
                 query,
             }
