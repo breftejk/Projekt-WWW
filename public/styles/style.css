@@ -1,0 +1,135 @@
+header {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header a, header label {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+header label {
+    float: right;
+    padding: 18px 20px;
+    cursor: pointer;
+}
+
+header label:after {
+    content: "\2261";
+    font-size: 1.8em;
+}
+
+.logo {
+    float: left;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+nav {
+    float: right;
+    max-height: 0;
+    width: 100%;
+    -webkit-transition: max-height 0.3s;
+    -moz-transition: max-height 0.3s;
+    -o-transition: max-height 0.3s;
+    transition: max-height 0.3s;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 10px;
+}
+
+nav li {
+    display: block;
+    text-align: center;
+}
+
+nav a {
+    padding: 10px;
+    width: 100%;
+}
+
+#nav { display: none; }
+
+#nav:checked ~ nav {
+    max-height: 200px;
+}
+
+@media only screen and (min-width: 700px) {
+
+    header label { display: none; }
+
+    nav {
+        width: auto;
+        max-height: none;
+    }
+
+    nav ul {
+        padding: 0;
+        padding-right: 10px;
+    }
+
+    nav li {
+        display: inline-block;
+        text-align: left;
+    }
+
+    header nav a {
+        display: inline-block;
+        padding: 20px 10px;
+        width: auto;
+    }
+
+}
+
+.main {
+    min-height: 100vh;
+}
+.topMovie {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.topMovie img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: auto;
+    height: 100%;
+    animation: zoomOut 30s infinite linear;
+}
+
+@keyframes zoomOut {
+    0% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+.topMovie h1 {
+    position: relative;
+    z-index: 1;
+    font-size: 48px;
+    text-align: center;
+}
