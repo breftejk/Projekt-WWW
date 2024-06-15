@@ -93,43 +93,131 @@ nav a {
 .main {
     min-height: 100vh;
 }
+
 .topMovie {
     position: relative;
     height: 100vh;
     width: 100%;
-    overflow: hidden;
+    overflow: hidden; /* Ensure the image doesn't overflow the container */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
 }
 
-.topMovie img {
+.topMovieImage {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1); /* Center the image */
     width: auto;
     height: 100%;
-    animation: zoomOut 30s infinite linear;
+    animation: zoomOut 10s infinite linear; /* Apply the animation */
 }
 
 @keyframes zoomOut {
     0% {
         transform: translate(-50%, -50%) scale(1.1);
     }
-    50% {
+    100% {
         transform: translate(-50%, -50%) scale(1.2);
     }
-    100% {
-        transform: translate(-50%, -50%) scale(1.1);
-    }
+}
+.topMovie h1, .topMovie p {
+    position: relative;
+    z-index: 1;
+    text-align: center;
 }
 
 .topMovie h1 {
-    position: relative;
-    z-index: 1;
     font-size: 48px;
+}
+
+.topMovie p {
+    max-width: 600px;
+    padding: 0 20px;
     text-align: center;
+}
+#searchInput {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    box-sizing: border-box;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    outline: none;
+    background: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+    z-index: 2;
+}
+
+#searchInput:focus {
+    border-color: #888;
+}
+
+.suggestions {
+    margin-top: 10px; /* Space between input and suggestions */
+    width: 80%;
+    max-width: 400px;
+    max-height: 200px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    visibility: hidden; /* Initially hidden */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.suggestions.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.suggestions div:not(.suggestion-details) {
+    color: #000;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    border-radius: 10px; /* Slightly round corners */
+}
+
+.suggestions img {
+    width: 40px; /* Small preview image */
+    height: auto;
+    margin-right: 10px;
+    border-radius: 5px; /* Slightly round corners for images */
+}
+
+.suggestions div:hover {
+    background: #f0f0f0;
+}
+
+.suggestion-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.suggestion-title {
+    font-weight: bold;
+}
+
+.suggestion-meta {
+    font-size: 12px;
+    color: #666;
+}
+
+.suggestions div:hover {
+    background: #f0f0f0;
+}
+
+.suggestions-tab {
+    display: flex;
+    flex-direction: row;
 }
