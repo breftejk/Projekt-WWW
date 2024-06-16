@@ -1,6 +1,8 @@
 const PROXY_URL = '/api/movie/image';
 
 document.addEventListener("DOMContentLoaded", function() {
+    if(window.innerWidth < 768) return;
+
     const leftPanel = document.querySelector(".left-panel");
 
     function adjustLeftPanelPosition() {
@@ -14,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
             leftPanel.style.top = 'initial';
         } else {
             leftPanel.style.position = 'sticky';
-            leftPanel.style.top = '60px';
+            leftPanel.style.top = '100px';
             leftPanel.style.bottom = 'initial';
         }
     }
@@ -57,26 +59,8 @@ document.addEventListener("DOMContentLoaded", function() {
         if (movieDetails) {
             let detailsHTML = `<h2>${movie.movie.title}</h2>`;
 
-            if (movie.movie.release_date) {
-                detailsHTML += `<p>Release Date: ${movie.movie.release_date}</p>`;
-            }
-            if (movie.movie.vote_average) {
-                detailsHTML += `<p>Rating: ${movie.movie.vote_average.toFixed(1)}</p>`;
-            }
-            if (movie.movie.genres && movie.movie.genres.length > 0) {
-                detailsHTML += `<p>Genre: ${movie.movie.genres.map(genre => genre.name).join(", ")}</p>`;
-            }
-            if (movie.movie.runtime) {
-                detailsHTML += `<p>Runtime: ${movie.movie.runtime} minutes</p>`;
-            }
-            if (movie.movie.budget) {
-                detailsHTML += `<p>Budget: $${movie.movie.budget.toLocaleString()}</p>`;
-            }
-            if (movie.movie.revenue) {
-                detailsHTML += `<p>Revenue: $${movie.movie.revenue.toLocaleString()}</p>`;
-            }
             if (movie.movie.tagline) {
-                detailsHTML += `<p>Tagline: ${movie.movie.tagline}</p>`;
+                detailsHTML += `<p>${movie.movie.tagline}</p>`;
             }
 
             movieDetails.innerHTML = detailsHTML;
@@ -93,7 +77,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (movieDescription) {
             if (movie.movie.overview && movie.movie.overview.trim() !== "") {
-                movieDescription.querySelector("p").innerText = movie.movie.overview;
+                movieDescription.querySelector("p").innerHTML = `<p>${movie.movie.overview}</p><hr style="color:rgba(0,0,0,0.26)" />`;
+
+
+
+                if (movie.movie.release_date) {
+                    movieDescription.querySelector("p").innerHTML += `<p>Release Date: ${movie.movie.release_date}</p>`;
+                }
+                if (movie.movie.vote_average) {
+                    movieDescription.querySelector("p").innerHTML += `<p>Rating: ${movie.movie.vote_average.toFixed(1)}</p>`;
+                }
+                if (movie.movie.genres && movie.movie.genres.length > 0) {
+                    movieDescription.querySelector("p").innerHTML += `<p>Genre: ${movie.movie.genres.map(genre => genre.name).join(", ")}</p>`;
+                }
+                if (movie.movie.runtime) {
+                    movieDescription.querySelector("p").innerHTML += `<p>Runtime: ${movie.movie.runtime} minutes</p>`;
+                }
+                if (movie.movie.budget) {
+                    movieDescription.querySelector("p").innerHTML += `<p>Budget: $${movie.movie.budget.toLocaleString()}</p>`;
+                }
+                if (movie.movie.revenue) {
+                    movieDescription.querySelector("p").innerHTML += `<p>Revenue: $${movie.movie.revenue.toLocaleString()}</p>`;
+                }
             } else {
                 movieDescription.style.display = 'none';
             }
