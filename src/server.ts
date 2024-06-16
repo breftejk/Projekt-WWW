@@ -12,10 +12,10 @@ server.register(FastifyStatic, {
   root: path.resolve(__dirname, '../public')
 });
 
-/*server.register(FastifyCaching, {
+server.register(FastifyCaching, {
   privacy: FastifyCaching.privacy.PUBLIC,
   expiresIn: 3600
-});*/
+});
 
 server.register(MovieRoute, { prefix: '/api/movie' });
 
