@@ -1,6 +1,30 @@
 const PROXY_URL = '/api/movie/image';
 
 document.addEventListener("DOMContentLoaded", function() {
+    const leftPanel = document.querySelector(".left-panel");
+
+    function adjustLeftPanelPosition() {
+        const container = document.querySelector(".movie-details-container");
+        const containerRect = container.getBoundingClientRect();
+        const leftPanelRect = leftPanel.getBoundingClientRect();
+
+        if (containerRect.bottom < leftPanelRect.bottom) {
+            leftPanel.style.position = 'absolute';
+            leftPanel.style.bottom = '0';
+            leftPanel.style.top = 'initial';
+        } else {
+            leftPanel.style.position = 'sticky';
+            leftPanel.style.top = '60px';
+            leftPanel.style.bottom = 'initial';
+        }
+    }
+
+    window.addEventListener('scroll', adjustLeftPanelPosition);
+    window.addEventListener('resize', adjustLeftPanelPosition);
+    adjustLeftPanelPosition();
+});
+
+document.addEventListener("DOMContentLoaded", function() {
     const movieId = window.location.hash.substring(1); // Get movie ID from URL hash
 
     console.log(movieId)
