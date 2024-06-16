@@ -151,8 +151,8 @@ function loadMovieDetails() {
   function updateVideoGallery(largeVideoGallery, smallVideoGallery, movie) {
     if (largeVideoGallery || smallVideoGallery) {
       if (movie.videos.results.length > 0) {
-        largeVideoGallery.innerHTML = ''; // Clear existing large videos
-        smallVideoGallery.innerHTML = ''; // Clear existing small videos
+        largeVideoGallery.innerHTML = '';
+        smallVideoGallery.innerHTML = '';
         const sortedVideos = movie.videos.results.sort((a, b) => {
           if (a.type === 'Trailer' && b.type !== 'Trailer') return -1;
           if (a.type !== 'Trailer' && b.type === 'Trailer') return 1;
@@ -186,7 +186,7 @@ function loadMovieDetails() {
   function updateCastGallery(castGallery, movie) {
     if (castGallery) {
       if (movie.credits.cast.length > 0) {
-        castGallery.innerHTML = ''; // Clear existing cast members
+        castGallery.innerHTML = '';
         movie.credits.cast
           .filter(
             (actor) =>
