@@ -26,7 +26,8 @@ server.register(FastifyHTTPProxy, {
 
 server
   .listen({
-    port: process.env.NODE_ENV === "production" ? (parseInt(process.env.PORT as string) || 80) : 3000
+    port: process.env.NODE_ENV === "production" ? (parseInt(process.env.PORT as string) || 80) : 3000,
+    host: "0.0.0.0"
   })
   .then(() => {
     console.log(`http://localhost:${process.env.NODE_ENV === "production" ? (parseInt(process.env.PORT as string) || 80) : 3000}/`);
