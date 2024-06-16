@@ -1,52 +1,86 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="styles/shared/_global.css" />
     <link rel="stylesheet" href="styles/shared/navbar.css" />
     <link rel="stylesheet" href="styles/index/hero.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
     <title>MovieApp</title>
-</head>
-<body>
-<header id="header">
+  </head>
+  <body>
+    <header id="header">
+      <a class="logo" href="http://minimaldev.com">Movie Hub</a>
 
-    <a class="logo" href="http://minimaldev.com">Movie Hub</a>
+      <input id="nav" type="checkbox" />
+      <label for="nav"></label>
 
-    <input id="nav" type="checkbox">
-    <label for="nav"></label>
-
-    <nav>
+      <nav>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/top-rated.html">Top Rated</a></li>
-            <li><a href="/popular.html">Popular</a></li>
-            <li><a href="/now-playing.html">Now Playing</a></li>
-            <li><a href="/upcoming.html">Upcoming</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/top-rated.html">Top Rated</a></li>
+          <li><a href="/popular.html">Popular</a></li>
+          <li><a href="/now-playing.html">Now Playing</a></li>
+          <li><a href="/upcoming.html">Upcoming</a></li>
         </ul>
-    </nav>
+      </nav>
+    </header>
 
-</header>
-
-<main>
-    <section class="topMovie">
-        <img class="topMovieImage" src="/api/movie/image/xJHokMbljvjADYdit5fK5VQsXEG.jpg" alt="Movie Image">
+    <main>
+      <section class="topMovie">
+        <img
+          class="topMovieImage"
+          src="/api/movie/image/xJHokMbljvjADYdit5fK5VQsXEG.jpg"
+          alt="Movie Image"
+        />
         <div class="topMovieContainer">
-            <a href="#" id="movieTitleLink"><h1 id="movieTitle">Title</h1></a>
-            <a href="#" id="movieOverviewLink"><p id="movieOverview" class="overview">This is the movie overview. It will be updated dynamically.</p></a>
-            <a>or</a>
-            <div class="suggestions-container">
-                <input type="text" id="searchInput" placeholder="Search for a movie..." />
-                <div id="suggestions" class="suggestions"></div>
-            </div>
+          <a href="#" id="movieTitleLink"><h1 id="movieTitle">Title</h1></a>
+          <a href="#" id="movieOverviewLink"
+            ><p id="movieOverview" class="overview">
+              This is the movie overview. It will be updated dynamically.
+            </p></a
+          >
+          <a>or</a>
+          <div class="suggestions-container">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search for a movie..."
+            />
+            <div id="suggestions" class="suggestions"></div>
+          </div>
         </div>
-    </section>
-    <section>
-        <h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1>
-    </section>
-</main>
+      </section>
+      <section>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+        <h1>x</h1>
+      </section>
+    </main>
 
-<script src="scripts/index/heroBehaviour.js"></script>
-</body>
+    <script src="scripts/index/heroBehaviour.js"></script>
+  </body>
 </html>

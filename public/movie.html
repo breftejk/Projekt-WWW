@@ -1,72 +1,64 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="styles/shared/_global.css" />
     <link rel="stylesheet" href="styles/shared/navbar.css" />
     <link rel="stylesheet" href="styles/movie/movie-details.css" />
     <title>MovieApp</title>
-</head>
-<body>
-<header id="header">
+  </head>
+  <body>
+    <header id="header">
+      <a class="logo" href="http://minimaldev.com">Movie Hub</a>
 
-    <a class="logo" href="http://minimaldev.com">Movie Hub</a>
+      <input id="nav" type="checkbox" />
+      <label for="nav"></label>
 
-    <input id="nav" type="checkbox">
-    <label for="nav"></label>
-
-    <nav>
+      <nav>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/top-rated.html">Top Rated</a></li>
-            <li><a href="/popular.html">Popular</a></li>
-            <li><a href="/now-playing.html">Now Playing</a></li>
-            <li><a href="/upcoming.html">Upcoming</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/top-rated.html">Top Rated</a></li>
+          <li><a href="/popular.html">Popular</a></li>
+          <li><a href="/now-playing.html">Now Playing</a></li>
+          <li><a href="/upcoming.html">Upcoming</a></li>
         </ul>
-    </nav>
+      </nav>
+    </header>
 
-</header>
-
-<main>
-    <section class="movie-details-container">
+    <main>
+      <section class="movie-details-container">
         <div class="left-panel">
-            <img src="" alt="Movie Poster" class="movie-poster">
-            <div class="movie-details">
-            </div>
+          <img src="" alt="Movie Poster" class="movie-poster" />
+          <div class="movie-details"></div>
         </div>
         <div class="right-panel">
-            <div class="movie-description">
-                <h3>Description</h3>
-                <p></p>
-            </div>
-            <div class="movie-photos">
-                <h3>Photos</h3>
-                <div class="photo-gallery">
-                </div>
-            </div>
-            <div class="movie-videos">
-                <h3>Videos</h3>
-                <div class="large-video-gallery">
-                </div>
-                <div class="small-video-gallery">
-                </div>
-            </div>
-            <div class="movie-cast">
-                <h3>Cast</h3>
-                <div class="cast-gallery">
-                </div>
-            </div>
-            <div class="similar-movies">
-                <h3>Similar</h3>
-                <div class="similar-gallery">
-                </div>
-            </div>
-            <div class="where-to-watch"></div>
+          <div class="movie-description">
+            <h3>Description</h3>
+            <p></p>
+          </div>
+          <div class="movie-photos">
+            <h3>Photos</h3>
+            <div class="photo-gallery"></div>
+          </div>
+          <div class="movie-videos">
+            <h3>Videos</h3>
+            <div class="large-video-gallery"></div>
+            <div class="small-video-gallery"></div>
+          </div>
+          <div class="movie-cast">
+            <h3>Cast</h3>
+            <div class="cast-gallery"></div>
+          </div>
+          <div class="similar-movies">
+            <h3>Similar</h3>
+            <div class="similar-gallery"></div>
+          </div>
+          <div class="where-to-watch"></div>
         </div>
-    </section>
-</main>
+      </section>
+    </main>
 
-<script src="scripts/movie/movieDetails.js"></script>
-</body>
+    <script src="scripts/movie/movieDetails.js"></script>
+  </body>
 </html>

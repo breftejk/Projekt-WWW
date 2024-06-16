@@ -1,172 +1,174 @@
 .topMovie {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    overflow: hidden; /* Ensure the image doesn't overflow the container */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden; /* Ensure the image doesn't overflow the container */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
 }
 
 .topMovieImage {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1); /* Center the image */
-    width: auto;
-    height: 100%;
-    animation: zoomOut 20s infinite linear; /* Apply the animation */
-    z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1); /* Center the image */
+  width: auto;
+  height: 100%;
+  animation: zoomOut 20s infinite linear; /* Apply the animation */
+  z-index: -1;
 }
 
 .hidden {
-    opacity: 0;
+  opacity: 0;
 }
 
 .visible {
-    opacity: 1;
+  opacity: 1;
 }
 
 @keyframes zoomOut {
-    0% {
-        transform: translate(-50%, -50%) scale(1.1);
-    }
-    50% {
-        transform: translate(-50%, -50%) scale(1.2);
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(1.1);
-    }
+  0% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
 }
-.topMovie h1, .topMovie p {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    transition: opacity 0.3s;
+.topMovie h1,
+.topMovie p {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  transition: opacity 0.3s;
 }
 
 .topMovie h1 {
-    font-size: 48px;
-    padding: 0;
-    margin: 0;
+  font-size: 48px;
+  padding: 0;
+  margin: 0;
 }
 
 .topMovie p {
-    max-width: 600px;
-    padding: 0 20px;
-    text-align: center;
+  max-width: 600px;
+  padding: 0 20px;
+  text-align: center;
 }
 #searchInput {
-    margin-top: 20px;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ffffff;
-    border-radius: 25px;
-    box-sizing: border-box;
-    width: 80%;
-    max-width: 400px;
-    text-align: center;
-    outline: none;
-    background: rgb(255, 255, 255);
-    z-index: 2;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ffffff;
+  border-radius: 25px;
+  box-sizing: border-box;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  outline: none;
+  background: rgb(255, 255, 255);
+  z-index: 2;
 }
 
 .suggestions-container {
-    position: relative;
-    width: 80%;
-    max-width: 400px;
+  position: relative;
+  width: 80%;
+  max-width: 400px;
 }
 
 .suggestions {
-    position: absolute;
-    top: calc(100% + 10px); /* Position below the input */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: 400px;
-    max-height: 200px;
-    overflow-y: auto;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    z-index: 1000;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s;
+  position: absolute;
+  top: calc(100% + 10px); /* Position below the input */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 400px;
+  max-height: 200px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
-
 .suggestions.visible {
-    visibility: visible;
-    opacity: 1;
+  visibility: visible;
+  opacity: 1;
 }
 
 .suggestions div:not(.suggestion-details) {
-    color: #000;
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-    cursor: pointer;
-    border-radius: 10px; /* Slightly round corners */
+  color: #000;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  border-radius: 10px; /* Slightly round corners */
 }
 
 .suggestions img {
-    width: 40px; /* Small preview image */
-    height: auto;
-    margin-right: 10px;
-    border-radius: 5px; /* Slightly round corners for images */
+  width: 40px; /* Small preview image */
+  height: auto;
+  margin-right: 10px;
+  border-radius: 5px; /* Slightly round corners for images */
 }
 
 .suggestions div:hover {
-    background: #f0f0f0;
+  background: #f0f0f0;
 }
 
 .suggestion-details {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .suggestion-title {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .suggestion-meta {
-    font-size: 12px;
-    color: #666;
+  font-size: 12px;
+  color: #666;
 }
 
 .suggestions div {
-    text-align: left;
+  text-align: left;
 }
 
 .suggestions div:hover {
-    background: #f0f0f0;
+  background: #f0f0f0;
 }
 
 .suggestions-tab {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .topMovieContainer {
-    background: rgba(0, 0, 0, 0.64);
-    padding: 25px;
-    border-radius: 25px;
+  background: rgba(0, 0, 0, 0.64);
+  padding: 25px;
+  border-radius: 25px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-#movieTitleLink, #movieOverviewLink {
-    color: inherit; /* Ensure the link color matches the text color */
-    text-decoration: none; /* Remove underline from links */
+#movieTitleLink,
+#movieOverviewLink {
+  color: inherit; /* Ensure the link color matches the text color */
+  text-decoration: none; /* Remove underline from links */
 }
 
-#movieTitleLink:hover, #movieOverviewLink:hover {
-    text-decoration: none; /* Ensure underline is not added on hover */
+#movieTitleLink:hover,
+#movieOverviewLink:hover {
+  text-decoration: none; /* Ensure underline is not added on hover */
 }
