@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node dist/server.js",
+    "start": "tsc && NODE_ENV=production node dist/server.js",
     "dev": "nodemon",
     "format": "prettier --write ."
   },

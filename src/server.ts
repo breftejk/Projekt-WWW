@@ -26,7 +26,7 @@ server.register(FastifyHTTPProxy, {
 
 server
   .listen({
-    port: 3000
+    port: process.env.NODE_ENV === "production" ? 80 : 3000
   })
   .then(() => {
     console.log('http://localhost:3000/');
