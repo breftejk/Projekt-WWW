@@ -2,23 +2,23 @@
   position: relative;
   height: 100vh;
   width: 100%;
-  overflow: hidden; /* Ensure the image doesn't overflow the container */
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .topMovieImage {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1); /* Center the image */
+  transform: translate(-50%, -50%) scale(1);
   width: auto;
-  height: 100%;
-  animation: zoomOut 20s infinite linear; /* Apply the animation */
+  height: 100vh;
+  animation: zoomOut 20s infinite linear;
   z-index: -1;
 }
 
@@ -83,7 +83,7 @@
 
 .suggestions {
   position: absolute;
-  top: calc(100% + 10px); /* Position below the input */
+  top: calc(100% + 10px);
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -109,14 +109,14 @@
   padding: 10px;
   border-bottom: 1px solid #eee;
   cursor: pointer;
-  border-radius: 10px; /* Slightly round corners */
+  border-radius: 10px;
 }
 
 .suggestions img {
-  width: 40px; /* Small preview image */
+  width: 40px;
   height: auto;
   margin-right: 10px;
-  border-radius: 5px; /* Slightly round corners for images */
+  border-radius: 5px;
 }
 
 .suggestions div:hover {
@@ -164,11 +164,11 @@
 
 #movieTitleLink,
 #movieOverviewLink {
-  color: inherit; /* Ensure the link color matches the text color */
-  text-decoration: none; /* Remove underline from links */
+  color: inherit;
+  text-decoration: none;
 }
 
 #movieTitleLink:hover,
 #movieOverviewLink:hover {
-  text-decoration: none; /* Ensure underline is not added on hover */
+  text-decoration: none;
 }

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles/shared/_global.css" />
+  <link rel="stylesheet" href="styles/shared/navbar.css" />
+  <link rel="stylesheet" href="styles/shared/footer.css" />
+  <link rel="stylesheet" href="styles/contact/contact-form.css" />
+
+  <title>Movie Hub - Contact Us</title>
+</head>
+<body>
+<header id="header">
+  <a class="logo" href="/">Movie Hub</a>
+
+  <input id="nav" type="checkbox" />
+  <label for="nav"></label>
+
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/top-rated.html">Top Rated</a></li>
+      <li><a href="/popular.html">Popular</a></li>
+      <li><a href="/now-playing.html">Now Playing</a></li>
+      <li><a href="/upcoming.html">Upcoming</a></li>
+      <li><a href="/favourites.html">Favourites</a></li>
+      <li><a href="/watchlist.html">Watchlist</a></li>
+      <button id="increaseFontSize">A+</button>
+      <button id="decreaseFontSize">A-</button>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="contact-section">
+    <h1>Contact Us</h1>
+    <form id="contactForm" novalidate>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <span class="error" id="nameError">Name is required</span>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span class="error" id="emailError">Valid email is required</span>
+      </div>
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <span class="error" id="messageError">Message is required</span>
+      </div>
+      <button class="send-button" type="submit">Send Message</button>
+    </form>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>&copy; 2024 Movie Hub. All rights reserved.</p>
+  <a href="/contact-us.html">Contact us</a>
+  <br />
+  <p>Marcin Kondrat, Jowita Ochrymiuk</p>
+  <p>A project for "Introduction to WWW" course at BUT.</p>
+</footer>
+
+<script src="scripts/contact/contactForm.js"></script>
+<script src="scripts/accessibility.js"></script>
+</body>
+</html>

@@ -133,7 +133,7 @@
 
 .cast-gallery .actor p {
   margin: 0;
-  font-size: 14px;
+  font-size: 90%;
   max-width: 80px;
 }
 
@@ -168,7 +168,7 @@
 
 .similar-gallery .similar p {
   margin-top: 5px;
-  font-size: 12px;
+  font-size: 90%;
   color: #333;
   max-width: 100px;
   word-wrap: break-word;
