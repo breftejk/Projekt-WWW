@@ -1,0 +1,172 @@
+.movie-details-container {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    height: 100%;
+    padding: 100px 20px;
+}
+
+@media (max-width: 768px) {
+    .movie-details-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .large-video-gallery iframe {
+        width: calc(100% - 10px) !important; /* Two per row with gap */
+        height: 200px !important; /* Adjust height proportionally */
+    }
+
+    .small-video-gallery iframe {
+        width: calc(50% - 10px) !important; /* Two per row with gap */
+        height: 150px !important; /* Adjust height proportionally */
+    }
+
+    .cast-gallery .actor {
+        width: calc(50% - 10px) !important;
+    }
+}
+
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.movie-poster {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.movie-details {
+    text-align: left;
+}
+
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.movie-description,
+.movie-photos,
+.movie-videos,
+.movie-cast,
+.similar-movies,
+.where-to-watch
+{
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.photo-gallery,
+.video-gallery {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.photo-gallery img{
+    width: 100%;
+    max-width: 200px; /* Adjust the size as needed */
+    border-radius: 10px; /* Optional: rounded corners */
+}
+
+.large-video-gallery iframe {
+    width: calc(50% - 10px); /* Two per row with gap */
+    height: 300px; /* Adjust height proportionally */
+    margin-bottom: 10px;
+}
+
+.small-video-gallery iframe {
+    width: calc(25% - 10px); /* Four per row with gap */
+    height: 150px; /* Adjust height as needed */
+    margin-bottom: 10px;
+}
+
+.cast-gallery .actor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(12.5% - 10px); /* Four per row with gap */
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.cast-gallery .actor img {
+    width: 100px; /* Fixed size for actor images */
+    height: 100px;
+    border-radius: 50%; /* Make the images circular */
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.cast-gallery .actor p {
+    margin: 0;
+    font-size: 14px;
+    max-width: 80px;
+}
+
+.cast-gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.similar-gallery {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    white-space: nowrap;
+    flex-wrap: wrap;
+}
+
+.similar-gallery .similar {
+    display: inline-block;
+    text-align: center;
+    margin-right: 10px;
+    max-width: 100px;
+}
+
+.similar-gallery .similar img {
+    width: 100px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.similar-gallery .similar p {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #333;
+    max-width: 100px;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.similar-gallery .similar a {
+    text-decoration: none;
+}
+
+.where-to-watch h4 {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.where-to-watch img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.where-to-watch {
+    text-decoration: none !important;
+}

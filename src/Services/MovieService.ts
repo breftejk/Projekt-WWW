@@ -1,4 +1,10 @@
-import { MovieSearch, MovieDetails } from "../Models/MovieModel";
+import {
+    MovieSearch,
+    ImageSearch,
+    MovieDetails,
+    VideoSearch,
+    MovieCreditsSearch, WhereToWatch
+} from "../Models/MovieModel";
 import TMDbAPIClient from "../Utils/TMDbAPIClient";
 
 class MovieService {
@@ -12,9 +18,37 @@ class MovieService {
         return response.data.results;
     }
 
-    static async getById(movieId: string): Promise<MovieDetails> {
-        const response = await TMDbAPIClient.get<MovieDetails>(`/movie/${movieId}`);
-        return response.data;
+    static async getDetails(movieId: string): Promise<{
+        movie: MovieDetails,
+        images: ImageSearch,
+        videos: VideoSearch,
+        credits: MovieCreditsSearch,
+        similar: {
+            results: MovieSearch[];
+        },
+        providers: WhereToWatch
+    }> {
+        const details = await TMDbAPIClient.get<MovieDetails>(`/movie/${movieId}`);
+
+        const images = await TMDbAPIClient.get<ImageSearch>(`/movie/${movieId}/images`);
+        const videos = await TMDbAPIClient.get<VideoSearch>(`/movie/${movieId}/videos`);
+
+        const credits = await TMDbAPIClient.get<MovieCreditsSearch>(`/movie/${movieId}/credits`);
+
+        const similar = await TMDbAPIClient.get<{
+            results: MovieSearch[];
+        }>(`/movie/${movieId}/similar`);
+
+        const providers = await TMDbAPIClient.get<WhereToWatch>(`/movie/${movieId}/watch/providers`);
+
+        return {
+            movie: details.data,
+            images: images.data,
+            videos: videos.data,
+            credits: credits.data,
+            similar: similar.data,
+            providers: providers.data,
+        }
     }
 
     static async getTopRated(): Promise<MovieSearch[]> {

@@ -21,8 +21,7 @@ server.register(MovieRoute, { prefix: "/api/movie" });
 
 server.register(FastifyHTTPProxy, {
     upstream: 'https://image.tmdb.org/t/p/original',
-    prefix: '/api/movie/image',
-    rewritePrefix: ''
+    prefix: '/api/movie/image'
 });
 
 server.listen({

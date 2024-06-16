@@ -2,15 +2,20 @@ const PROXY_URL = '/api/movie/image';
 
 document.addEventListener("DOMContentLoaded", function() {
     const header = document.getElementById("header");
+    const nav = document.querySelector("nav");
     const topMovieSection = document.querySelector(".topMovie");
     const movieImage = topMovieSection.querySelector("img");
     const movieTitle = topMovieSection.querySelector("h1");
+    const movieTitleLink = topMovieSection.querySelector("a#movieTitleLink");
     const movieOverview = topMovieSection.querySelector("p");
+    const movieOverviewLink = topMovieSection.querySelector("a#movieOverviewLink");
 
-    if (!header || !topMovieSection || !movieImage) {
-        console.error("Header, topMovie section, or movie image not found");
+    if (!header || !topMovieSection || !movieImage || !nav) {
+        console.error("Header, topMovie section, movie image, or nav not found");
         return;
     }
+
+    header.style.background = "transparent";
 
     async function updateImageAndAnalyze() {
         try {
@@ -23,7 +28,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 movieImage.crossOrigin = "Anonymous";
                 movieImage.src = imageUrl;
                 movieTitle.innerText = movie.title;
+                movieTitleLink.href = `/movie.html#${movie.id}`;
                 movieOverview.innerText = movie.overview;
+                movieOverviewLink.href = `/movie.html#${movie.id}`;
 
                 movieImage.onload = function() {
                     analyzeImage(movieImage);
@@ -77,7 +84,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function getTextColorBasedOnBgColor([r, g, b]) {
         const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-        return brightness > 125 ? "#000" : "#fff";
+        // Increased threshold for better tolerance to bright colors
+        return brightness > 200 ? "#000" : "#fff";
+    }
+
+    function invertColor(hex) {
+        hex = hex.slice(1); // Remove '#' character
+        const bigint = parseInt(hex, 16);
+        const r = (bigint >> 16) & 255;
+        const g = (bigint >> 8) & 255;
+        const b = bigint & 255;
+        const inverted = (255 - r).toString(16).padStart(2, '0') +
+            (255 - g).toString(16).padStart(2, '0') +
+            (255 - b).toString(16).padStart(2, '0');
+        return `#${inverted}`;
     }
 
     function setHeaderTextColor(color) {
@@ -85,13 +105,18 @@ document.addEventListener("DOMContentLoaded", function() {
         header.querySelectorAll("a, label").forEach(el => {
             el.style.color = color;
         });
+        const navUl = nav.querySelector("ul");
+        const bgColor = color === "#000" ? "#fff" : "#000"; // Basic inversion for black/white
+        navUl.style.backgroundColor = bgColor;
     }
 
     window.addEventListener('scroll', function() {
         if (window.scrollY >= window.innerHeight * 0.96) {
             setHeaderTextColor("#000");
+            header.style.background = "#fff";
         } else {
             analyzeImage(movieImage);
+            header.style.background = "transparent";
         }
     });
 
@@ -111,8 +136,8 @@ document.addEventListener("DOMContentLoaded", function() {
     document.addEventListener("click", function(event) {
         if (!searchInput.contains(event.target) && !suggestions.contains(event.target)) {
             suggestions.innerHTML = "";
-            suggestions.style.opacity = 0;
-            suggestions.style.visibility = "hidden";
+            suggestions.classList.remove("visible");
+            suggestions.classList.add("hidden");
             searchInput.value = null;
         }
     });
@@ -123,20 +148,29 @@ document.addEventListener("DOMContentLoaded", function() {
             const results = await searchMovies(query);
             suggestions.innerHTML = results.map(movie => `
                 <div data-id="${movie.id}" class="suggestions-tab">
-                        <img src="/api/movie/image${movie.poster_path}" alt="${movie.title} poster">
-                        <div class="suggestion-details">
-                            <span class="suggestion-title">${movie.title}</span>
-                            <span class="suggestion-meta">Release Date: ${movie.release_date}</span>
-                            <span class="suggestion-meta">Rating: ${movie.vote_average.toFixed(1)}</span>
-                        </div>
+                    <img src="/api/movie/image${movie.poster_path}" alt="${movie.title} poster">
+                    <div class="suggestion-details">
+                        <span class="suggestion-title">${movie.title}</span>
+                        <span class="suggestion-meta">Release Date: ${movie.release_date}</span>
+                        <span class="suggestion-meta">Rating: ${movie.vote_average.toFixed(1)}</span>
                     </div>
+                </div>
             `).join("");
-            suggestions.style.visibility = "visible";
-            suggestions.style.opacity = 1;
+            suggestions.classList.add("visible");
+            suggestions.classList.remove("hidden");
         } else {
             suggestions.innerHTML = "";
-            suggestions.style.opacity = 0;
-            suggestions.style.visibility = "hidden";
+            suggestions.classList.remove("visible");
+            suggestions.classList.add("hidden");
+        }
+    });
+
+    suggestions.addEventListener("click", function(event) {
+        const suggestionTab = event.target.closest(".suggestions-tab");
+        if (suggestionTab) {
+            const movieId = suggestionTab.getAttribute("data-id");
+            console.log("Clicked movie ID:", movieId);
+            location.href = `/movie.html#${movieId}`;
         }
     });
 });

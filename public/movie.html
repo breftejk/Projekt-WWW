@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/shared/_global.css" />
+    <link rel="stylesheet" href="styles/shared/navbar.css" />
+    <link rel="stylesheet" href="styles/movie/movie-details.css" />
+    <title>MovieApp</title>
+</head>
+<body>
+<header id="header">
+
+    <a class="logo" href="http://minimaldev.com">Movie Hub</a>
+
+    <input id="nav" type="checkbox">
+    <label for="nav"></label>
+
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/top-rated.html">Top Rated</a></li>
+            <li><a href="/popular.html">Popular</a></li>
+            <li><a href="/now-playing.html">Now Playing</a></li>
+            <li><a href="/upcoming.html">Upcoming</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+<main>
+    <section class="movie-details-container">
+        <div class="left-panel">
+            <img src="path-to-movie-poster.jpg" alt="Movie Poster" class="movie-poster">
+            <div class="movie-details">
+                <h2>Movie Title</h2>
+                <p>Release Date: YYYY-MM-DD</p>
+                <p>Rating: X.X</p>
+                <p>Genre: Action, Adventure</p>
+                <!-- Add more movie details as needed -->
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="movie-description">
+                <h3>Description</h3>
+                <p>This is the movie description. It provides an overview of the plot and key details about the movie.</p>
+            </div>
+            <div class="movie-photos">
+                <h3>Photos</h3>
+                <div class="photo-gallery">
+                    <img src="path-to-photo1.jpg" alt="Photo 1">
+                    <img src="path-to-photo2.jpg" alt="Photo 2">
+                    <!-- Add more photos as needed -->
+                </div>
+            </div>
+            <div class="movie-videos">
+                <h3>Videos</h3>
+                <div class="large-video-gallery">
+                    <!-- Large videos will be inserted here -->
+                </div>
+                <div class="small-video-gallery">
+                    <!-- Small videos will be inserted here -->
+                </div>
+            </div>
+            <div class="movie-cast">
+                <h3>Cast</h3>
+                <div class="cast-gallery">
+                    <!-- Cast members will be inserted here -->
+                </div>
+            </div>
+            <div class="similar-movies">
+                <h3>Similar</h3>
+                <div class="similar-gallery">
+                    <div class="similar">
+                        <a href="link-to-recommendation1" target="_blank">
+                            <img src="path-to-recommendation1.jpg" alt="Recommendation 1">
+                            <p>Recommendation 1</p>
+                        </a>
+                    </div>
+                    <div class="similar">
+                        <a href="link-to-recommendation2" target="_blank">
+                            <img src="path-to-recommendation2.jpg" alt="Recommendation 2">
+                            <p>Recommendation 2</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="where-to-watch"></div>
+        </div>
+    </section>
+</main>
+
+<script src="scripts/movie/movieDetails.js"></script>
+</body>
+</html>

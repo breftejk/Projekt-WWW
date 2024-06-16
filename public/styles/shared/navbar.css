@@ -1,0 +1,103 @@
+header {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: white;
+}
+
+header a, header label {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    line-height: 20px;
+    font-weight: 500;
+
+    color: black;
+}
+
+header label {
+    float: right;
+    padding: 18px 20px;
+    cursor: pointer;
+}
+
+header label:after {
+    content: "\2261";
+    font-size: 1.8em;
+}
+
+.logo {
+    float: left;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+nav {
+    float: right;
+    max-height: 0;
+    width: 100%;
+    -webkit-transition: max-height 0.3s;
+    -moz-transition: max-height 0.3s;
+    -o-transition: max-height 0.3s;
+    transition: max-height 0.3s;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 10px;
+
+    background: white;
+}
+
+nav li {
+    display: block;
+    text-align: center;
+}
+
+nav a {
+    padding: 10px;
+    width: 100%;
+}
+
+#nav { display: none; }
+
+#nav:checked ~ nav {
+    max-height: 200px;
+}
+
+@media only screen and (min-width: 700px) {
+
+    header label { display: none; }
+
+    nav {
+        width: auto;
+        max-height: none;
+    }
+
+    nav ul {
+        padding: 0;
+        padding-right: 10px;
+
+        background: transparent !important;
+    }
+
+    nav li {
+        display: inline-block;
+        text-align: left;
+    }
+
+    header nav a {
+        display: inline-block;
+        padding: 20px 10px;
+        width: auto;
+    }
+
+}
+
+.main {
+    min-height: 100vh;
+}

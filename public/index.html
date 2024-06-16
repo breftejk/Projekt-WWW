@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/_global.css" />
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/shared/_global.css" />
+    <link rel="stylesheet" href="styles/shared/navbar.css" />
+    <link rel="stylesheet" href="styles/index/hero.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
     <title>MovieApp</title>
 </head>
@@ -18,11 +19,11 @@
 
     <nav>
         <ul>
-            <li><a href="#3003">Home</a></li>
-            <li><a href="#">Top Rated</a></li>
-            <li><a href="#">Popular</a></li>
-            <li><a href="#">Now Playing</a></li>
-            <li><a href="#">Upcoming</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/top-rated.html">Top Rated</a></li>
+            <li><a href="/popular.html">Popular</a></li>
+            <li><a href="/now-playing.html">Now Playing</a></li>
+            <li><a href="/upcoming.html">Upcoming</a></li>
         </ul>
     </nav>
 
@@ -31,10 +32,14 @@
 <main>
     <section class="topMovie">
         <img class="topMovieImage" src="/api/movie/image/xJHokMbljvjADYdit5fK5VQsXEG.jpg" alt="Movie Image">
-        <h1>Title</h1>
-        <p class="overview">This is the movie overview. It will be updated dynamically.</p>
-        <label for="searchInput"></label><input type="text" id="searchInput" placeholder="Search for a movie..." />
-        <div id="suggestions" class="suggestions"></div>
+        <div class="topMovieContainer">
+            <a href="#" id="movieTitleLink"><h1 id="movieTitle">Title</h1></a>
+            <a href="#" id="movieOverviewLink"><p id="movieOverview" class="overview">This is the movie overview. It will be updated dynamically.</p></a>
+            <div class="suggestions-container">
+                <input type="text" id="searchInput" placeholder="Search for a movie..." />
+                <div id="suggestions" class="suggestions"></div>
+            </div>
+        </div>
     </section>
     <section>
         <h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1><h1>x</h1>
