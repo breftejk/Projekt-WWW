@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="styles/shared/_global.css" />
     <link rel="stylesheet" href="styles/shared/navbar.css" />
+    <link rel="stylesheet" href="styles/shared/footer.css" />
     <link rel="stylesheet" href="styles/movie/movie-details.css" />
-    <title>MovieApp</title>
+    <title>Movie Hub - Movie Details</title>
   </head>
   <body>
     <header id="header">
-      <a class="logo" href="http://minimaldev.com">Movie Hub</a>
+      <a class="logo" href="/">Movie Hub</a>
 
       <input id="nav" type="checkbox" />
       <label for="nav"></label>
@@ -22,6 +23,8 @@
           <li><a href="/popular.html">Popular</a></li>
           <li><a href="/now-playing.html">Now Playing</a></li>
           <li><a href="/upcoming.html">Upcoming</a></li>
+          <li><a href="/favourites.html">Favourites</a></li>
+          <li><a href="/watchlist.html">Watchlist</a></li>
         </ul>
       </nav>
     </header>
@@ -31,6 +34,8 @@
         <div class="left-panel">
           <img src="" alt="Movie Poster" class="movie-poster" />
           <div class="movie-details"></div>
+          <button class="button" id="addToFavourites">Add to Favourites</button>
+          <button class="button" id="addToWatchlist">Add to Watchlist</button>
         </div>
         <div class="right-panel">
           <div class="movie-description">
@@ -59,6 +64,14 @@
       </section>
     </main>
 
+    <footer class="footer">
+      <p>&copy; 2024 Movie Hub. All rights reserved.</p>
+      <br />
+      <p>Marcin Kondrat, Jowita Ochrymiuk</p>
+      <p>A project for "Introduction to WWW" course at BUT.</p>
+    </footer>
+
     <script src="scripts/movie/movieDetails.js"></script>
+    <script src="scripts/movie/listsManager.js"></script>
   </body>
 </html>

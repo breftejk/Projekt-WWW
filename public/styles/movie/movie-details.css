@@ -14,13 +14,13 @@
   }
 
   .large-video-gallery iframe {
-    width: calc(100% - 10px) !important; /* Two per row with gap */
-    height: 200px !important; /* Adjust height proportionally */
+    width: calc(100% - 10px) !important;
+    height: 200px !important;
   }
 
   .small-video-gallery iframe {
-    width: calc(50% - 10px) !important; /* Two per row with gap */
-    height: 150px !important; /* Adjust height proportionally */
+    width: calc(50% - 10px) !important;
+    height: 150px !important;
   }
 
   .cast-gallery .actor {
@@ -46,7 +46,7 @@
 @media (min-width: 768px) {
   .left-panel {
     position: sticky;
-    top: 20px; /* Adjust this value as needed */
+    top: 20px;
   }
 
   .movie-details-container {
@@ -98,19 +98,19 @@
 
 .photo-gallery img {
   width: 100%;
-  max-width: 200px; /* Adjust the size as needed */
-  border-radius: 10px; /* Optional: rounded corners */
+  max-width: 200px;
+  border-radius: 10px;
 }
 
 .large-video-gallery iframe {
-  width: calc(50% - 10px); /* Two per row with gap */
-  height: 300px; /* Adjust height proportionally */
+  width: calc(50% - 10px);
+  height: 300px;
   margin-bottom: 10px;
 }
 
 .small-video-gallery iframe {
-  width: calc(25% - 10px); /* Four per row with gap */
-  height: 150px; /* Adjust height as needed */
+  width: calc(25% - 10px);
+  height: 150px;
   margin-bottom: 10px;
 }
 
@@ -118,15 +118,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: calc(12.5% - 10px); /* Four per row with gap */
+  width: calc(12.5% - 10px);
   text-align: center;
   padding-bottom: 20px;
 }
 
 .cast-gallery .actor img {
-  width: 100px; /* Fixed size for actor images */
+  width: 100px;
   height: 100px;
-  border-radius: 50%; /* Make the images circular */
+  border-radius: 50%;
   margin-bottom: 10px;
   object-fit: cover;
 }
@@ -193,4 +193,33 @@
 
 .where-to-watch {
   text-decoration: none !important;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #3498db;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #2980b9;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button-remove {
+  background-color: #e74c3c;
+}
+
+.button-remove:hover {
+  background-color: #c0392b;
 }

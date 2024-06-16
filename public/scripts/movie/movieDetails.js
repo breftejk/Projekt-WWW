@@ -1,6 +1,11 @@
 const PROXY_URL = '/api/movie/image';
 
 document.addEventListener('DOMContentLoaded', function () {
+  handleStickyLeftPanel();
+  loadMovieDetails();
+});
+
+function handleStickyLeftPanel() {
   if (window.innerWidth < 768) return;
 
   const leftPanel = document.querySelector('.left-panel');
@@ -24,9 +29,9 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', adjustLeftPanelPosition);
   window.addEventListener('resize', adjustLeftPanelPosition);
   adjustLeftPanelPosition();
-});
+}
 
-document.addEventListener('DOMContentLoaded', function () {
+function loadMovieDetails() {
   const movieId = window.location.hash.substring(1); // Get movie ID from URL hash
 
   console.log(movieId);
@@ -47,7 +52,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function updateMovieDetails(movie) {
     console.log(movie);
-    // Update the left panel
+    updateLeftPanel(movie);
+    updateRightPanel(movie);
+  }
+
+  function updateLeftPanel(movie) {
     const moviePoster = document.querySelector('.movie-poster');
     const movieDetails = document.querySelector('.movie-details');
 
@@ -57,6 +66,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (movieDetails) {
+      document.querySelector('title').innerText =
+        `Movie Hub - ${movie.movie.title}`;
+
       let detailsHTML = `<h2>${movie.movie.title}</h2>`;
 
       if (movie.movie.tagline) {
@@ -65,8 +77,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
       movieDetails.innerHTML = detailsHTML;
     }
+  }
 
-    // Update the right panel
+  function updateRightPanel(movie) {
     const movieDescription = document.querySelector('.movie-description');
     const photoGallery = document.querySelector('.photo-gallery');
     const largeVideoGallery = document.querySelector('.large-video-gallery');
@@ -75,6 +88,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const similarGallery = document.querySelector('.similar-gallery');
     const whereToWatch = document.querySelector('.where-to-watch');
 
+    updateDescription(movieDescription, movie);
+    updatePhotoGallery(photoGallery, movie);
+    updateVideoGallery(largeVideoGallery, smallVideoGallery, movie);
+    updateCastGallery(castGallery, movie);
+    updateSimilarGallery(similarGallery, movie);
+    updateWhereToWatch(whereToWatch, movie);
+  }
+
+  function updateDescription(movieDescription, movie) {
     if (movieDescription) {
       if (movie.movie.overview && movie.movie.overview.trim() !== '') {
         movieDescription.querySelector('p').innerHTML =
@@ -108,7 +130,9 @@ document.addEventListener('DOMContentLoaded', function () {
         movieDescription.style.display = 'none';
       }
     }
+  }
 
+  function updatePhotoGallery(photoGallery, movie) {
     if (photoGallery) {
       if (movie.images.backdrops.length > 0) {
         photoGallery.innerHTML = ''; // Clear existing photos
@@ -122,7 +146,9 @@ document.addEventListener('DOMContentLoaded', function () {
         photoGallery.parentElement.style.display = 'none';
       }
     }
+  }
 
+  function updateVideoGallery(largeVideoGallery, smallVideoGallery, movie) {
     if (largeVideoGallery || smallVideoGallery) {
       if (movie.videos.results.length > 0) {
         largeVideoGallery.innerHTML = ''; // Clear existing large videos
@@ -155,7 +181,9 @@ document.addEventListener('DOMContentLoaded', function () {
         smallVideoGallery.parentElement.style.display = 'none';
       }
     }
+  }
 
+  function updateCastGallery(castGallery, movie) {
     if (castGallery) {
       if (movie.credits.cast.length > 0) {
         castGallery.innerHTML = ''; // Clear existing cast members
@@ -171,35 +199,42 @@ document.addEventListener('DOMContentLoaded', function () {
             const actorElement = document.createElement('div');
             actorElement.classList.add('actor');
             actorElement.innerHTML = `
-                        <img src="${PROXY_URL}${actor.profile_path}" alt="${actor.name}">
-                        <p>${actor.name} as ${actor.character}</p>
-                    `;
+              <img src="${PROXY_URL}${actor.profile_path}" alt="${actor.name}">
+              <p>${actor.name} as ${actor.character}</p>
+            `;
             castGallery.appendChild(actorElement);
           });
       } else {
         castGallery.parentElement.style.display = 'none';
       }
     }
+  }
 
+  function updateSimilarGallery(similarGallery, movie) {
     if (similarGallery) {
       if (movie.similar && movie.similar.results.length > 0) {
         similarGallery.innerHTML = '';
-        movie.similar.results.slice(0, 8).forEach((similar) => {
-          const similarElement = document.createElement('div');
-          similarElement.classList.add('similar');
-          similarElement.innerHTML = `
-                        <a href="/movie.html#${similar.id}" target="_blank">
-                            <img src="${PROXY_URL}${similar.poster_path}" alt="${similar.title}">
-                            <p>${similar.title}</p>
-                        </a>
-                    `;
-          similarGallery.appendChild(similarElement);
-        });
+        movie.similar.results
+          .filter((movie) => movie.poster_path)
+          .slice(0, 8)
+          .forEach((similar) => {
+            const similarElement = document.createElement('div');
+            similarElement.classList.add('similar');
+            similarElement.innerHTML = `
+            <a href="/movie.html#${similar.id}" target="_blank">
+              <img src="${PROXY_URL}${similar.poster_path}" alt="${similar.title}">
+              <p>${similar.title}</p>
+            </a>
+          `;
+            similarGallery.appendChild(similarElement);
+          });
       } else {
         similarGallery.parentElement.style.display = 'none';
       }
     }
+  }
 
+  function updateWhereToWatch(whereToWatch, movie) {
     if (whereToWatch) {
       const watchData = movie.providers.results['PL'];
       if (watchData) {
@@ -234,4 +269,4 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
   }
-});
+}

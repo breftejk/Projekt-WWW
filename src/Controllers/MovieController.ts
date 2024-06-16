@@ -26,7 +26,7 @@ class MovieController {
     reply: FastifyReply
   ) {
     const { id } = request.query;
-    if (!id) throw new Error('No id presented in body');
+    if (!id) throw new Error('No id presented in the body');
     const movie = await MovieService.getDetails(id);
     return reply.send(movie);
   }

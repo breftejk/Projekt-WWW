@@ -88,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function getTextColorBasedOnBgColor([r, g, b]) {
     const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-    // Increased threshold for better tolerance to bright colors
     return brightness > 200 ? '#000' : '#fff';
   }
 
@@ -111,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
       el.style.color = color;
     });
     const navUl = nav.querySelector('ul');
-    const bgColor = color === '#000' ? '#fff' : '#000'; // Basic inversion for black/white
+    const bgColor = color === '#000' ? '#fff' : '#000';
     navUl.style.backgroundColor = bgColor;
   }
 
